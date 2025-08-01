@@ -115,7 +115,7 @@ body {
     background: linear-gradient(45deg, var(--primary-pink), var(--primary-gold), var(--primary-purple), var(--primary-blue));
     background-size: 400% 400%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/*     -webkit-text-fill-color: transparent; */
     background-clip: text;
     animation: gradientText 3s ease infinite, titleFloat 4s ease-in-out infinite;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -150,6 +150,10 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-15px) scale(1.1); }
+}
+
+.title-text {
+    -webkit-text-fill-color: transparent !important;
 }
 
 .subtitle {
