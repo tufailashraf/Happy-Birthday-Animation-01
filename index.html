@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday Celebration! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="floating-hearts"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="title-wrapper">
+                <h1 class="main-title">
+                    <span class="emoji bounce">🎉</span>
+                    <span class="title-text">Happy Birthday!</span>
+                    <span class="emoji bounce-delayed">🎂</span>
+                </h1>
+                <p class="subtitle pulse">Wish You A Day Filled With Joy Love & Happiness!</p>
+            </div>
+        </header>
+        <!-- Birthday Cake Section -->
+        <section class="cake-section">
+            <div class="cake-container">
+                <div class="cake-wrapper">
+                    <div class="cake">
+                        <!-- Cake Layers -->
+                        <div class="cake-layer cake-bottom">
+                            <div class="frosting-drip drip-1"></div>
+                            <div class="frosting-drip drip-2"></div>
+                            <div class="frosting-drip drip-3"></div>
+                        </div>
+                        <div class="cake-layer cake-middle">
+                            <div class="decoration decoration-1">🌸</div>
+                            <div class="decoration decoration-2">🌺</div>
+                            <div class="decoration decoration-3">🌸</div>
+                        </div>
+                        <div class="cake-layer cake-top">
+                            <div class="cherry">🍒</div>
+                        </div>
+                        
+                        <!-- Candles -->
+                        <div class="candles-container">
+                            <div class="candle" data-candle="1">
+                                <div class="flame"></div>
+                                <div class="wick"></div>
+                                <div class="candle-body"></div>
+                                <div class="wax-drip"></div>
+                            </div>
+                            <div class="candle" data-candle="2">
+                                <div class="flame"></div>
+                                <div class="wick"></div>
+                                <div class="candle-body candle-pink"></div>
+                                <div class="wax-drip"></div>
+                            </div>
+                            <div class="candle" data-candle="3">
+                                <div class="flame"></div>
+                                <div class="wick"></div>
+                                <div class="candle-body candle-blue"></div>
+                                <div class="wax-drip"></div>
+                            </div>
+                            <div class="candle" data-candle="4">
+                                <div class="flame"></div>
+                                <div class="wick"></div>
+                                <div class="candle-body candle-green"></div>
+                                <div class="wax-drip"></div>
+                            </div>
+                            <div class="candle" data-candle="5">
+                                <div class="flame"></div>
+                                <div class="wick"></div>
+                                <div class="candle-body candle-purple"></div>
+                                <div class="wax-drip"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="cake-instruction glow">Click the candles to blow them out! 💨</p>
+            </div>
+        </section>
+
+        <!-- Interactive Controls -->
+        <section class="controls-section">
+            <div class="controls">
+                <button id="confetti-btn" class="control-btn confetti-btn">
+                    <span class="btn-icon">🎊</span>
+                    <span class="btn-text">Confetti Party</span>
+                </button>
+                <button id="balloons-btn" class="control-btn balloons-btn">
+                    <span class="btn-icon">🎈</span>
+                    <span class="btn-text">Release Balloons</span>
+                </button>
+                <button id="fireworks-btn" class="control-btn fireworks-btn">
+                    <span class="btn-icon">🎆</span>
+                    <span class="btn-text">Fireworks</span>
+                </button>
+                <button id="reset-btn" class="control-btn reset-btn">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">Reset</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Age Input Section -->
+        <section class="age-section" style="display: none;">
+            <div class="age-card">
+                <h3 class="age-title">🎂 How old are you today? 🎂</h3>
+                <div class="age-input-wrapper">
+                    <input type="number" id="age-input" class="age-input" min="1" max="150" value="25" placeholder="Enter age">
+                    <div class="age-display" id="age-display">25</div>
+                </div>
+                <div class="age-celebration" id="age-celebration"></div>
+            </div>
+        </section>
+
+        <!-- Floating Messages -->
+        <section class="messages-section">
+            <div class="floating-messages">
+                <div class="message-bubble message-1">🎈 Have an amazing day!</div>
+                <div class="message-bubble message-2">✨ Dreams come true!</div>
+                <div class="message-bubble message-3">🌟 You're incredible!</div>
+                <div class="message-bubble message-4">🎁 Enjoy every moment!</div>
+                <div class="message-bubble message-5">💖 Sending birthday love!</div>
+                <div class="message-bubble message-6">🎉 Party time!</div>
+            </div>
+        </section>
+
+        <!-- Birthday Countdown -->
+        <section class="countdown-section">
+            <div class="countdown-card">
+                <h3 class="countdown-title">🕐 Birthday Countdown 🕐</h3>
+                <div class="countdown-display">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <p class="countdown-message">Until your next birthday! 🎊</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Balloons Container -->
+    <div class="balloons-container" id="balloons-container"></div>
+    
+    <!-- Fireworks Container -->
+    <div class="fireworks-container" id="fireworks-container"></div>
+    
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

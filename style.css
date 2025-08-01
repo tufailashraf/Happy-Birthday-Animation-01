@@ -1,0 +1,1016 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #FF1493;
+    --primary-gold: #FFD700;
+    --primary-purple: #8A2BE2;
+    --primary-blue: #00BFFF;
+    --accent-orange: #FF6347;
+    --accent-green: #32CD32;
+    --accent-cyan: #00CED1;
+    --text-light: #FFFFFF;
+    --text-dark: #2C3E50;
+    --shadow-glow: 0 0 20px rgba(255, 212, 0, 0.6);
+    --shadow-strong: 0 15px 35px rgba(0, 0, 0, 0.3);
+    --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --gradient-cake: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gradient-bg);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text-light);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animated Background Elements */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    color: #FFD700;
+    font-size: 12px;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    color: #FF69B4;
+    font-size: 20px;
+    animation: floatUp 15s infinite linear;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: slideInDown 1.5s ease-out;
+}
+
+.title-wrapper {
+    position: relative;
+}
+
+.main-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary-pink), var(--primary-gold), var(--primary-purple), var(--primary-blue));
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 3s ease infinite, titleFloat 4s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.emoji {
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+.bounce-delayed {
+    animation: bounce 2s infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+.subtitle {
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    font-weight: 300;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+.pulse {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Cake Section */
+.cake-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.cake-container {
+    display: inline-block;
+    position: relative;
+}
+
+.cake-wrapper {
+    position: relative;
+    animation: cakeEntrance 2s ease-out;
+}
+
+@keyframes cakeEntrance {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.cake {
+    position: relative;
+    margin: 0 auto;
+    filter: drop-shadow(var(--shadow-strong));
+    animation: cakeFloat 6s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-5px) rotate(1deg); }
+    66% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+.cake.celebration {
+    animation: cakeCelebration 2s ease-in-out;
+}
+
+@keyframes cakeCelebration {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    75% { transform: scale(1.1) rotate(-5deg); }
+}
+
+/* Cake Layers */
+.cake-layer {
+    border-radius: 25px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.cake-bottom {
+    width: 220px;
+    height: 70px;
+    background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+    border: 4px solid #654321;
+    position: relative;
+}
+
+.cake-middle {
+    width: 180px;
+    height: 60px;
+    background: var(--gradient-cake);
+    border: 3px solid #FF1493;
+    position: relative;
+    top: -15px;
+    animation: layerPulse 4s ease-in-out infinite;
+}
+
+.cake-top {
+    width: 140px;
+    height: 50px;
+    background: linear-gradient(45deg, var(--primary-gold), #FFA500, #FFB347);
+    border: 3px solid #FF8C00;
+    position: relative;
+    top: -30px;
+    animation: layerPulse 4s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes layerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Frosting Drips */
+.frosting-drip {
+    position: absolute;
+    bottom: -8px;
+    width: 20px;
+    height: 15px;
+    background: #FFB6C1;
+    border-radius: 0 0 50% 50%;
+    animation: dripAnimation 3s ease-in-out infinite;
+}
+
+.drip-1 { left: 20%; animation-delay: 0s; }
+.drip-2 { left: 50%; animation-delay: 1s; }
+.drip-3 { right: 20%; animation-delay: 2s; }
+
+@keyframes dripAnimation {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.3); }
+}
+
+/* Decorations */
+.decoration {
+    position: absolute;
+    font-size: 16px;
+    animation: decorationSpin 8s linear infinite;
+}
+
+.decoration-1 { left: 15%; top: 50%; }
+.decoration-2 { right: 15%; top: 50%; }
+.decoration-3 { left: 50%; top: 20%; transform: translateX(-50%); }
+
+@keyframes decorationSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.cherry {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    animation: cherryBounce 2s ease-in-out infinite;
+}
+
+@keyframes cherryBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* Candles */
+.candles-container {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+}
+
+.candle {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: candleWiggle 4s ease-in-out infinite;
+}
+
+.candle:hover {
+    transform: scale(1.15);
+}
+
+@keyframes candleWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+.candle-body {
+    width: 10px;
+    height: 35px;
+    background: linear-gradient(to bottom, #FF6B6B, #FF8E8E);
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.candle-pink { background: linear-gradient(to bottom, #FF69B4, #FFB6C1); }
+.candle-blue { background: linear-gradient(to bottom, #00BFFF, #87CEEB); }
+.candle-green { background: linear-gradient(to bottom, #32CD32, #90EE90); }
+.candle-purple { background: linear-gradient(to bottom, #8A2BE2, #DDA0DD); }
+
+.wick {
+    width: 2px;
+    height: 5px;
+    background: #333;
+    margin: 0 auto;
+    border-radius: 1px;
+}
+
+.flame {
+    width: 14px;
+    height: 18px;
+    background: radial-gradient(circle, #FFD700 20%, #FF4500 60%, #FF6347 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    margin: 0 auto;
+    position: relative;
+    top: -3px;
+    animation: flameDance 1.5s ease-in-out infinite alternate;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+}
+
+@keyframes flameDance {
+    0% { transform: rotate(-3deg) scale(1); }
+    100% { transform: rotate(3deg) scale(1.1); }
+}
+
+.flame.blown-out {
+    animation: blowOut 0.8s ease-out forwards;
+}
+
+@keyframes blowOut {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3) translateX(15px); }
+    100% { opacity: 0; transform: scale(0) translateX(25px); }
+}
+
+.wax-drip {
+    position: absolute;
+    bottom: -5px;
+    left: 2px;
+    width: 6px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 50% 50%;
+    animation: waxDrip 5s ease-in-out infinite;
+}
+
+@keyframes waxDrip {
+    0%, 100% { height: 8px; }
+    50% { height: 12px; }
+}
+
+.smoke {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 25px;
+    background: rgba(200, 200, 200, 0.6);
+    border-radius: 50%;
+    animation: smokeRise 3s ease-out forwards;
+}
+
+@keyframes smokeRise {
+    0% { opacity: 0.6; transform: translateX(-50%) translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-40px) scale(2.5); }
+}
+
+.cake-instruction {
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.glow {
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(255, 212, 0, 0.8), 0 0 30px rgba(255, 212, 0, 0.6); }
+}
+
+/* Controls Section */
+.controls-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: buttonFloat 3s ease-in-out infinite;
+}
+
+@keyframes buttonFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.control-btn:hover::before {
+    left: 100%;
+}
+
+.confetti-btn {
+    background: linear-gradient(45deg, var(--primary-pink), var(--primary-purple));
+    color: white;
+    animation-delay: 0s;
+}
+
+.balloons-btn {
+    background: linear-gradient(45deg, var(--primary-blue), var(--accent-cyan));
+    color: white;
+    animation-delay: 0.5s;
+}
+
+.fireworks-btn {
+    background: linear-gradient(45deg, var(--accent-orange), var(--primary-gold));
+    color: white;
+    animation-delay: 1s;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, var(--accent-green), #90EE90);
+    color: white;
+    animation-delay: 1.5s;
+}
+
+.control-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.btn-icon {
+    font-size: 1.3em;
+    animation: iconSpin 4s linear infinite;
+}
+
+@keyframes iconSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Age Section */
+.age-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.age-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+.age-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.age-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.age-input {
+    width: 120px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 3px solid var(--primary-gold);
+    border-radius: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.age-input:focus {
+    outline: none;
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+    transform: scale(1.05);
+}
+
+.age-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: ageGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes ageGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    100% { text-shadow: 0 0 20px var(--primary-gold), 2px 2px 4px rgba(0, 0, 0, 0.3); }
+}
+
+.age-celebration {
+    min-height: 80px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    animation: celebrationBounce 2s ease-in-out infinite;
+}
+
+@keyframes celebrationBounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Messages Section */
+.messages-section {
+    margin-bottom: 4rem;
+    position: relative;
+    height: 250px;
+}
+
+.floating-messages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.message-bubble {
+    position: absolute;
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: floatMessage 12s infinite ease-in-out;
+    opacity: 0;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 212, 0, 0.3);
+}
+
+.message-1 { left: 5%; animation-delay: 0s; }
+.message-2 { right: 5%; animation-delay: 2s; }
+.message-3 { left: 50%; transform: translateX(-50%); animation-delay: 4s; }
+.message-4 { left: 15%; animation-delay: 6s; }
+.message-5 { right: 15%; animation-delay: 8s; }
+.message-6 { left: 35%; animation-delay: 10s; }
+
+@keyframes floatMessage {
+    0%, 100% { opacity: 0; transform: translateY(30px) scale(0.8); }
+    10%, 90% { opacity: 1; transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+}
+
+/* Countdown Section */
+.countdown-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.countdown-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 25px var(--primary-gold); }
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    min-width: 100px;
+    animation: countdownPulse 2s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.countdown-message {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* Balloons */
+.balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: balloonFloat 8s infinite linear;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fireworks */
+.fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: fireworkExplode 2s ease-out forwards;
+}
+
+@keyframes fireworkExplode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+/* Congratulations Message */
+.congratulations {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, var(--primary-gold), var(--primary-pink));
+    color: white;
+    padding: 3rem 4rem;
+    border-radius: 25px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1002;
+    animation: congratulationsShow 5s ease-out forwards;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes congratulationsShow {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(180deg);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .cake-bottom {
+        width: 180px;
+        height: 60px;
+    }
+
+    .cake-middle {
+        width: 150px;
+        height: 50px;
+    }
+
+    .cake-top {
+        width: 120px;
+        height: 40px;
+    }
+
+    .candles-container {
+        gap: 12px;
+        top: -70px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .control-btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 1rem 2rem;
+    }
+
+    .age-card, .countdown-card {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .countdown-display {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        padding: 1rem;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .age-input-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .age-display {
+        font-size: 3rem;
+    }
+
+    .messages-section {
+        height: 200px;
+    }
+
+    .message-bubble {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .cake-bottom {
+        width: 150px;
+        height: 50px;
+    }
+
+    .cake-middle {
+        width: 120px;
+        height: 40px;
+    }
+
+    .cake-top {
+        width: 100px;
+        height: 35px;
+    }
+
+    .candles-container {
+        gap: 10px;
+        top: -60px;
+    }
+
+    .candle-body {
+        width: 8px;
+        height: 30px;
+    }
+
+    .flame {
+        width: 12px;
+        height: 15px;
+    }
+
+    .age-display {
+        font-size: 2.5rem;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .congratulations {
+        padding: 2rem;
+        font-size: 1.4rem;
+        margin: 0 1rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.control-btn:focus,
+.age-input:focus {
+    outline: 3px solid var(--primary-gold);
+    outline-offset: 3px;
+}
+
+/* Print Styles */
+@media print {
+    .balloons-container,
+    .fireworks-container,
+    .controls-section,
+    #confetti-canvas,
+    .floating-hearts,
+    .stars {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
